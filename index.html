@@ -1,8 +1,4 @@
-%%[
 
-Website
-
-]%%
 
 
 <html>
@@ -10,6 +6,19 @@ Website
 
 
 <p>
+
+    %%[
+    SET @contactId = _subscriberkey
+
+    IF NOT EMPTY(@contactId) THEN
+
+    ]%%
+
+<p> NOT EMPTY </p>
+    %%[ELSE]%%
+<p>EMPTY</p>
+
+%%[ENDIF]%%
 
 
 
