@@ -1,18 +1,17 @@
-<!DOCTYPE html>
+
 <html>
-<head>
-    <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-    />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-</head>
 <body>
-
-<h1>TITLE 3</h1>
-
-%%=UPPERCASE(SubscriberKey)=%%
-
+<h2>Update your profile:</h2>
+<form>
+    <label>First name: </label><input type="text" name="firstname"><br>
+    <label>Last name: </label><input type="text" name="lastname"><br>
+    <label>Email: </label><input type="text" name="email"><br>
+    <h2>Update your subscriptions:</h2>
+    <label>Newsletter: </label><input name="newsletter" type="checkbox"><br>
+    <label>Events: </label><input name="events" type="checkbox"><br>
+    <label>Offers: </label><input name="offers" type="checkbox"><br>
+    <input name="submitted" type="hidden" value="true"><br>
+    <input type="submit" value="Submit">
+</form>
 </body>
-
 </html>
