@@ -5,36 +5,59 @@
 <body>
 
 
-<p>
+%%[
+SET @contactId = _subscriberkey
 
-    %%[
-    SET @contactId = _subscriberkey
+IF NOT EMPTY(@contactId) THEN
 
-    IF NOT EMPTY(@contactId) THEN
+/* fetch data from Sales Cloud to show in the form */
 
-    ]%%
+SET @subscriberRows = RetrieveSalesforceObjects(
+"Contact",
+"Id,FirstName,LastName,Email,Newsletter__c,Events__c,Offers__c,HasOptedOutOfEmail",
+"Id", "=", @contactId
+)
 
-<p> NOT EMPTY </p>
-    %%[ELSE]%%
-<p>EMPTY</p>
+IF RowCount(@subscriberRows) > 0 THEN
 
-%%[ENDIF]%%
+SET @row = row(@subscriberRows,1)
+SET @FirstName = field(@row,"FirstName")
+SET @LastName = field(@row,"LastName")
+SET @Email = field(@row,"Email")
+SET @Newsletter = field(@row,"Newsletter__c")
+SET @Events = field(@row,"Events__c")
+SET @Offers = field(@row,"Offers__c")
+SET @HasOptedOutOfEmail = field(@row,"HasOptedOutOfEmail")
 
+IF @Newsletter == true THEN SET @Newsletterchk = "checked" ENDIF
+IF @Events == true THEN SET @Eventschk = "checked" ENDIF
+IF @Offers == true THEN SET @Offerschk = "checked" ENDIF
+]%%
 
+<h2>Update your profile:</h2>
+<form action="%%=RequestParameter('PAGEURL')=%%" method="post">
+    <label>First name: </label><input type="text" name="firstname" value="%%=v(@FirstName)=%%"><br>
+    <label>Last name: </label><input type="text" name="lastname" value="%%=v(@LastName)=%%"><br>
+    <label>Email: </label><input type="text" name="email" value="%%=v(@Email)=%%"><br>
 
-</p>
-<h2>Update your profile 65:</h2>
-<form>
-    <label>First name: </label><input type="text" name="firstname"><br>
-    <label>Last name: </label><input type="text" name="lastname"><br>
-    <label>Email: </label><input type="text" name="email"><br>
     <h2>Update your subscriptions:</h2>
-    <label>Newsletter: </label><input name="newsletter" type="checkbox"><br>
-    <label>Events: </label><input name="events" type="checkbox"><br>
-    <label>Offers: </label><input name="offers" type="checkbox"><br>
+
+    <label>Newsletter: </label><input name="newsletter" type="checkbox" %%=v(@Newsletterchk)=%%><br>
+    <label>Events: </label><input name="events" type="checkbox" %%=v(@Eventschk)=%%><br>
+    <label>Offers: </label><input name="offers" type="checkbox" %%=v(@Offerschk)=%%><br>
     <input name="submitted" type="hidden" value="true"><br>
     <input type="submit" value="Submit">
 </form>
+
+%%[ELSE]%%
+
+Sorry, something went wrong (no records found).
+
+%%[ENDIF ELSE]%%
+
+Sorry, something went wrong (missing subscriber key).
+
+%%[ENDIF]%%
 
 </body>
 </html>
