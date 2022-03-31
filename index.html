@@ -4,25 +4,17 @@
 
 
 <p>
-
     %%[
 
-    var @currentTime, @sendStartTime
-
-    set @currentTime  = Now()
-    set @currentTime =  format(@currentTime,"yyyyMMddhhmmss")
-
-    set @sendStartTime  = Now(1)
-    set @sendStartTime =  format(@sendStartTime,"yyyyMMddhhmmss")
+    var @firstName, @age
+    set @firstName = [First Name]
 
     ]%%
-    currentTime: %%=v(@currentTime)=%%
-    <br>sendStartTime: %%=v(@sendStartTime)=%%
 
-
+    %%First Name%%
 
 </p>
-<h2>Update your profile 3:</h2>
+<h2>Update your profile 4:</h2>
 <form>
     <label>First name: </label><input type="text" name="firstname"><br>
     <label>Last name: </label><input type="text" name="lastname"><br>
