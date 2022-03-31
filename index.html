@@ -6,8 +6,18 @@
 <p>
 
     %%[
-    _subscriberkey
+
+    var @currentTime, @sendStartTime
+
+    set @currentTime  = Now()
+    set @currentTime =  format(@currentTime,"yyyyMMddhhmmss")
+
+    set @sendStartTime  = Now(1)
+    set @sendStartTime =  format(@sendStartTime,"yyyyMMddhhmmss")
+
     ]%%
+    currentTime: %%=v(@currentTime)=%%
+    <br>sendStartTime: %%=v(@sendStartTime)=%%
 
 
 
