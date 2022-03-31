@@ -4,34 +4,7 @@
 <html>
 <body>
 
-
-%%[
-SET @contactId = _subscriberkey
-
-IF NOT EMPTY(@contactId) THEN
-
-/* fetch data from Sales Cloud to show in the form */
-
-SET @firstName = [First Name]
-]%%
-
-<p>
-
-<form action="" method="post">
-    <label>First name: </label><input type="text" name="firstname" value="%%=v(@firstName)=%%"><br>
-
-
-</form>
-
-
-</p>
-
-
-%%[ELSE]%%
-
-Sorry, something went wrong (missing subscriber key).
-
-%%[ENDIF]%%
+<p>%%=v(Website)=%%</p>
 
 </body>
 </html>
