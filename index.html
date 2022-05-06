@@ -4,19 +4,26 @@
 <html>
 <body>
 
-<script runat="server">
-    Platform.Load("core","1");
-    try {
-</script>
+<H1>TEST 001</H1>
+
 %%[
-LookupRows('UnexistingDataExtension','Id',0)
-]%%
-<script runat="server">
-    }
-    catch (err) {
-        Write("Error Message: " + Stringify(err.message) + Stringify(err.description));
-    }
-</script>
+Set @subKey = [_subscriberkey]
+
+%%]
+
+<!--<script runat="server">-->
+<!--    Platform.Load("core","1");-->
+<!--    try {-->
+<!--</script>-->
+<!--%%[-->
+<!--LookupRows('UnexistingDataExtension','Id',0)-->
+<!--]%%-->
+<!--<script runat="server">-->
+<!--    }-->
+<!--    catch (err) {-->
+<!--        Write("Error Message: " + Stringify(err.message) + Stringify(err.description));-->
+<!--    }-->
+<!--</script>-->
 
 
 </body>
