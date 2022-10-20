@@ -21,14 +21,43 @@
             --dark: #34435E;
         }
 
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul, li {
+            list-style-type: none;
+        }
+
         body {
             background-color: var(--lightest);
             color: var(--dark);
             font: normal 18px/1.6 'Barlow Condensed', sans-serif;
         }
 
+        header {
+            background-color: var(--mid);
+            color: var(--lightest);
+        }
+
+        nav {
+            margin: 0 auto;
+            padding: 1rem 3vw;
+            max-width: 1499px;
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        nav ul li {
+            padding: 0 2em 0 0;
+        }
+
         main {
-            padding: 4rem 3vw;
+            padding: 3rem 3vw;
+            min-height: 80vh;
         }
 
         h1 {
@@ -38,10 +67,6 @@
             text-align: center;
         }
 
-        p, span {
-            padding: 0 0 1em;
-        }
-
         .form-box {
             max-width: 800px;
             margin: 0 auto;
@@ -49,12 +74,29 @@
             padding: 20px;
             border-radius: 20px;
         }
+
+        footer {
+            background-color: var(--light);
+        }
+
+        .footer-inner {
+            margin: 0 auto;
+            padding: 2rem 3vw;
+            max-width: 1499px;
+            text-align: center;
+        }
     </style>
 
 </head>
 <body>
     <header>
-        <nav></nav>
+        <nav>
+            <ul>
+                <li><a href="#">Example link 1</a></li>
+                <li><a href="#">Example link 2</a></li>
+                <li><a href="#">Example link 3</a></li>
+            </ul>
+        </nav>
     </header>
     <main>
         <H1>🐌 TEST 🐌</H1>
@@ -71,7 +113,9 @@
 
     </main>
     <footer>
-
+        <div class="footer-inner">
+            <p>Copyright</p>
+        </div>
     </footer>
 
     <script>
