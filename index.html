@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+
     <style>
         * {
             box-sizing: border-box;
@@ -18,20 +22,26 @@
         body {
             background-color: var(--lightest);
             color: var(--dark);
+            font-family: 'Barlow Condensed', sans-serif;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Anton', sans-serif;
         }
     </style>
 
 </head>
 <body>
+    <main>
+        <H1>TEST 004</H1>
+        %%[
+        SET @key= RequestParameter("key")
 
-    <H1>TEST 004</H1>
-    %%[
-    SET @key= RequestParameter("key")
+        ]%%
 
-    ]%%
-
-    %%= v(@key) =%%
-
+        %%= v(@key) =%% 
+    </main>
+    
     <script>
 
         function getParameterByName(name) {
