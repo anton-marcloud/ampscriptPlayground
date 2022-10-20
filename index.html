@@ -15,18 +15,19 @@
             box-sizing: border-box;
             --lightest: #f0eff3;
             --light: #D8D2E1;
-            --mid: #B88E8D;
+            --mid: #b07a79;
             --dark: #34435E;
         }
 
         body {
             background-color: var(--lightest);
             color: var(--dark);
-            font-family: 'Barlow Condensed', sans-serif;
+            font: normal 16px/1.6 'Barlow Condensed', sans-serif;
         }
 
         h1, h2, h3 {
-            font-family: 'Anton', sans-serif;
+            color: var(--mid);
+            font: normal 2.5rem/1.2 'Anton', sans-serif;
         }
     </style>
 
@@ -41,7 +42,7 @@
 
         %%= v(@key) =%% 
     </main>
-    
+
     <script>
 
         function getParameterByName(name) {
