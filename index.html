@@ -13,6 +13,8 @@
     <style>
         * {
             box-sizing: border-box;
+            padding: 0;
+            margin: 0;
             --lightest: #f0eff3;
             --light: #D8D2E1;
             --mid: #b07a79;
@@ -22,26 +24,55 @@
         body {
             background-color: var(--lightest);
             color: var(--dark);
-            font: normal 16px/1.6 'Barlow Condensed', sans-serif;
+            font: normal 18px/1.6 'Barlow Condensed', sans-serif;
         }
 
-        h1, h2, h3 {
+        main {
+            padding: 4rem 3vw;
+        }
+
+        h1 {
             color: var(--mid);
-            font: normal 2.5rem/1.2 'Anton', sans-serif;
+            font: normal 2.4rem/1.2 'Anton', sans-serif;
+            padding: 0 0 1em;
+            text-align: center;
+        }
+
+        p, span {
+            padding: 0 0 1em;
+        }
+
+        .form-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--light);
+            padding: 20px;
+            border-radius: 20px;
         }
     </style>
 
 </head>
 <body>
+    <header>
+        <nav></nav>
+    </header>
     <main>
-        <H1>TEST 004</H1>
-        %%[
-        SET @key= RequestParameter("key")
+        <H1>🐌 TEST 🐌</H1>
+        <noscript>        %%[
+            SET @key= RequestParameter("key")
+    
+            ]%%
+    
+            %%= v(@key) =%% 
+        </noscript>
+        <div class="form-box">
+            This is where the test form will go :) 
+        </div>
 
-        ]%%
-
-        %%= v(@key) =%% 
     </main>
+    <footer>
+
+    </footer>
 
     <script>
 
