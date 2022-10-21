@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            --lightest: #f0eff3;
+            --light: #D8D2E1;
+            --mid: #b07a79;
+            --dark: #34435E;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul, li {
+            list-style-type: none;
+        }
+
+        body {
+            background-color: var(--lightest);
+            color: var(--dark);
+            font: normal 18px/1.6 'Barlow Condensed', sans-serif;
+        }
+
+        header {
+            background-color: var(--mid);
+            color: var(--lightest);
+        }
+
+        nav {
+            margin: 0 auto;
+            padding: 1rem 3vw;
+            max-width: 1499px;
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        nav ul li {
+            padding: 0 2em 0 0;
+        }
+
+        main {
+            padding: 3rem 3vw;
+            min-height: 80vh;
+        }
+
+        h1 {
+            color: var(--mid);
+            font: normal 2.4rem/1.2 'Anton', sans-serif;
+            padding: 0 0 1em;
+            text-align: center;
+        }
+
+        .form-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--light);
+            padding: 20px;
+            border-radius: 20px;
+        }
+
+        footer {
+            background-color: var(--light);
+        }
+
+        .footer-inner {
+            margin: 0 auto;
+            padding: 2rem 3vw;
+            max-width: 1499px;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Example link 1</a></li>
+                <li><a href="#">Example link 2</a></li>
+                <li><a href="#">Example link 3</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <H1>🐌 TEST PAGE 1 🐌</H1>
+        <div class="form-box">
+            This is where the test form will go :) 
+        </div>
+
+    </main>
+    <footer>
+        <div class="footer-inner">
+            <p>Copyright</p>
+        </div>
+    </footer>
+
+    <script>
+
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+            let regexS = "[\\?&]" + name.toLowerCase() + "=([^&#]*)";
+            let regex = new RegExp(regexS);
+            let results = regex.exec(window.location.search.toLowerCase());
+            if (results == null) {
+                return "";
+            }
+            else {
+                return decodeURIComponent(results[1].replace(/\+/g, " "));
+            }
+        }
+
+        function setCookie(cName, cValue, expDays) {
+            let date = new Date();
+            date.setTime(date.getTime() + (expDays * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + date.toUTCString();
+            document.cookie = cName + "=" + cValue + "; " + expires + '; path=/' + '; domain=' + location.hostname + '; secure';
+        }
+
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        let iframe = document.querySelectorAll('iframe');
+        let pSource = getParameterByName('utm_source');
+        let pMedium = getParameterByName('utm_medium');
+        let pCampaign = getParameterByName('utm_campaign');
+        let pContent = getParameterByName('utm_content');
+        let pTerm = getParameterByName('utm_term');
+        
+        if (getParameterByName('utm_source')) {
+            setCookie('utmTracking', '?utm_source=' + pSource + '&utm_medium=' + pMedium + '&utm_campaign=' + pCampaign + '&utm_content=' + pContent + '&utm_term=' + pTerm, 3650);
+        } else {}
+
+        if (getCookie('utmTracking')) {
+            for (ind = 0; ind < iframe.length; ind++) {
+                iframe[ind].src += getCookie('utmTracking');
+            }
+        } else {}
+
+    </script>
+    </body>
+</html>
