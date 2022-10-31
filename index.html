@@ -119,16 +119,14 @@
     </footer>
 
     <script>
-
         function getParameterByName(name) {
             name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
-            let regexS = "[\\?&]" + name.toLowerCase() + "=([^&#]*)";
+            let regexS = "[\\?&]" + name + "=([^&#]*)";
             let regex = new RegExp(regexS);
-            let results = regex.exec(window.location.search.toLowerCase());
+            let results = regex.exec(window.location.search);
             if (results == null) {
                 return "";
-            }
-            else {
+            } else {
                 return decodeURIComponent(results[1].replace(/\+/g, " "));
             }
         }
@@ -156,23 +154,31 @@
             return "";
         }
 
-        let iframe = document.querySelectorAll('iframe');
-        let pSource = getParameterByName('utm_source');
-        let pMedium = getParameterByName('utm_medium');
-        let pCampaign = getParameterByName('utm_campaign');
-        let pContent = getParameterByName('utm_content');
-        let pTerm = getParameterByName('utm_term');
-        
-        if (getParameterByName('utm_source')) {
-            setCookie('utmTracking', '?utm_source=' + pSource + '&utm_medium=' + pMedium + '&utm_campaign=' + pCampaign + '&utm_content=' + pContent + '&utm_term=' + pTerm, 3650);
-        } else {}
+        (function () {
+            let iframe = document.querySelectorAll('iframe');
+            let pSource = getParameterByName('utm_source').toLowerCase();
+            let pMedium = getParameterByName('utm_medium').toLowerCase();
+            let pCampaign = getParameterByName('utm_campaign').toLowerCase();
+            let pContent = getParameterByName('utm_content').toLowerCase();
+            let pTerm = getParameterByName('utm_term').toLowerCase();
+            let pGclid = getParameterByName('gclid');
+            let pagePath = window.location.pathname.split('/').filter(e => e).slice(-1);
 
-        if (getCookie('utmTracking')) {
-            for (ind = 0; ind < iframe.length; ind++) {
-                iframe[ind].src += getCookie('utmTracking');
+            setCookie('pageUrl', window.location.pathname.split('/').filter(e => e).slice(-1), 3650);
+
+            if (getParameterByName('utm_source') || getParameterByName('gclid')) {
+                setCookie('utmTracking', '?utm_source=' + pSource + '&utm_medium=' + pMedium + '&utm_campaign=' + pCampaign + '&utm_content=' + pContent + '&utm_term=' + pTerm + '&gclid=' + pGclid + '&last_utm_source=' + pSource + '&last_utm_medium=' + pMedium + '&last_utm_campaign=' + pCampaign + '&last_utm_content=' + pContent + '&last_utm_term=' + pTerm + '&last_gclid=' + pGclid, 3650);
+            } else { }
+            if (getCookie('utmTracking')) {
+                for (ind = 0; ind < iframe.length; ind++) {
+                    iframe[ind].src = iframe[ind].src + getCookie('utmTracking') + '&FSU=' + getCookie('pageUrl') + '&LSU=' + getCookie('pageUrl');
+                }
+            } else {
+                for (ind = 0; ind < iframe.length; ind++) {
+                    iframe[ind].src = iframe[ind].src + '?FSU=' + getCookie('pageUrl') + '&LSU=' + getCookie('pageUrl');
+                }
             }
-        } else {}
-
+        })();
     </script>
     </body>
 </html>
