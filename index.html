@@ -181,7 +181,7 @@
     <script>
 
         document.querySelectorAll('iframe').forEach(e => {
-            contentWindow.postMessage(message, 'This is a string');
+            e.contentWindow.postMessage(message, 'This is a string');
         });
 
         function getParameterByName(name) {
