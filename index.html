@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AMP Script Playground</title>
-    
+
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-NNLKND2');</script>
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-NNLKND2');</script>
     <!-- End Google Tag Manager -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:ital,wght@0,300;1,300&display=swap"
+        rel="stylesheet">
 
     <style>
         * {
@@ -28,6 +34,7 @@
             --light: #D8D2E1;
             --mid: #b07a79;
             --dark: #34435E;
+            font: normal 18px/1.6 'Barlow Condensed', sans-serif;
         }
 
         .termsfeed-com---palette-light.termsfeed-com---nb {
@@ -51,14 +58,14 @@
             color: inherit;
         }
 
-        ul, li {
+        ul,
+        li {
             list-style-type: none;
         }
 
         body {
             background-color: var(--lightest);
             color: var(--dark);
-            font: normal 18px/1.6 'Barlow Condensed', sans-serif;
         }
 
         header {
@@ -113,22 +120,25 @@
     </style>
 
 </head>
+
 <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NNLKND2"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NNLKND2" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
     <!-- Cookie Consent by TermsFeed https://www.TermsFeed.com -->
-        <script type="text/javascript" src="//www.termsfeed.com/public/cookie-consent/4.0.0/cookie-consent.js" charset="UTF-8"></script>
-        <script type="text/javascript" charset="UTF-8">
+    <script type="text/javascript" src="//www.termsfeed.com/public/cookie-consent/4.0.0/cookie-consent.js"
+        charset="UTF-8"></script>
+    <script type="text/javascript" charset="UTF-8">
         document.addEventListener('DOMContentLoaded', function () {
-        cookieconsent.run({"notice_banner_type":"headline","consent_type":"express","palette":"light","language":"en","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"website_name":"Snail Trail"});
+            cookieconsent.run({ "notice_banner_type": "headline", "consent_type": "express", "palette": "light", "language": "en", "page_load_consent_levels": ["strictly-necessary"], "notice_banner_reject_button_hide": false, "preferences_center_close_button_hide": false, "page_refresh_confirmation_buttons": false, "website_name": "Snail Trail" });
         });
-        </script>
+    </script>
 
-        <noscript>Free cookie consent management tool by <a href="https://www.termsfeed.com/" rel="nofollow noopener">TermsFeed Policy Generator</a></noscript>
-        <!-- End Cookie Consent by TermsFeed https://www.TermsFeed.com -->
+    <noscript>Free cookie consent management tool by <a href="https://www.termsfeed.com/"
+            rel="nofollow noopener">TermsFeed Policy Generator</a></noscript>
+    <!-- End Cookie Consent by TermsFeed https://www.TermsFeed.com -->
 
 
     <!-- Below is the link that users can use to open Preferences Center to change their preferences. Do not modify the ID parameter. Place it where appropriate, style it as needed. -->
@@ -147,16 +157,19 @@
     </header>
     <main>
         <H1>🐌 TEST PAGE 1 🐌</H1>
-        <noscript>        %%[
+        <noscript> %%[
             SET @key= RequestParameter("key")
-    
+
             ]%%
-    
-            %%= v(@key) =%% 
+
+            %%= v(@key) =%%
         </noscript>
         <div class="form-box">
-            <iframe src="https://go.www.snailtrail.uk/l/346332/2022-11-29/q9v8k" width="100%" height="500" type="text/html" frameborder="0" allowTransparency="true" style="border: 0"></iframe>
+            <iframe src="https://go.www.snailtrail.uk/l/346332/2022-11-29/q9v8k" width="100%" height="350"
+                type="text/html" frameborder="0" allowTransparency="true" style="border: 0"></iframe>
         </div>
+        <p>Name : </p>
+        <input type="text" name="resp" id="input" value=""/>
 
     </main>
     <footer>
@@ -166,6 +179,11 @@
     </footer>
 
     <script>
+
+        document.querySelectorAll('iframe').forEach(e => {
+            contentWindow.postMessage(message, 'This is a string');
+        });
+
         function getParameterByName(name) {
             name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
             let regexS = "[\\?&]" + name + "=([^&#]*)";
@@ -232,16 +250,17 @@
         piAId = '347332';
         piCId = '';
         piHostname = 'go.www.snailtrail.uk';
-        
-        (function() {
-            function async_load(){
+
+        (function () {
+            function async_load() {
                 var s = document.createElement('script'); s.type = 'text/javascript';
                 s.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + piHostname + '/pd.js';
                 var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
             }
-            if(window.attachEvent) { window.attachEvent('onload', async_load); }
+            if (window.attachEvent) { window.attachEvent('onload', async_load); }
             else { window.addEventListener('load', async_load, false); }
         })();
-        </script>
-    </body>
+    </script>
+</body>
+
 </html>
