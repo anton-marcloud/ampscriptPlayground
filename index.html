@@ -180,9 +180,7 @@
 
     <script>
 
-        document.querySelectorAll('iframe').forEach(e => {
-            e.contentWindow.postMessage(message, 'This is a string');
-        });
+        document.querySelector('iframe').contentWindow.postMessage(message, 'This is a string');
 
         function getParameterByName(name) {
             name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
