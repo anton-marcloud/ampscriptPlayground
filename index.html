@@ -180,12 +180,11 @@
 
     <script>
 
+        let myIframe = document.querySelector('iframe').contentWindow;
         function changeMe() {
-            const myIframe = document.querySelector('iframe');
-            let iframeWindow = myIframe.contentWindow;
-            console.log(iframeWindow.document);
-
+            myIframe.postMessage(document.location.pathname, "*");
         }
+        
 
 
         function getParameterByName(name) {
