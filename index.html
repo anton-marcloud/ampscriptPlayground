@@ -168,8 +168,8 @@
             <iframe src="https://go.www.snailtrail.uk/l/346332/2022-11-29/q9v8k" width="100%" height="350"
                 type="text/html" frameborder="0" allowTransparency="true" style="border: 0"></iframe>
         </div>
-        <p>Name : </p>
-        <input type="text" name="resp" id="input" value=""/>
+        
+        <button onclick="changeMe()" >Click me</button>
 
     </main>
     <footer>
@@ -180,7 +180,13 @@
 
     <script>
 
-        document.querySelector('iframe').contentWindow.postMessage(message, 'This is a string');
+        function changeMe() {
+            const myIframe = document.querySelector('iframe');
+            let iframeWindow = myIframe.contentWindow;
+            console.log(iframeWindow.document);
+
+        }
+
 
         function getParameterByName(name) {
             name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
