@@ -6,6 +6,7 @@ let dataDrop = {
 }
 
 window.onload = function() {
+    console.log(dataDrop);
     myIframe.contentWindow.postMessage(dataDrop, "https://go.www.snailtrail.uk");
 }
 
