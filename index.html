@@ -103,7 +103,7 @@
             max-width: 1024px;
             margin: 0 auto;
             background-color: var(--light);
-            padding: 1.5em 1em;
+            padding: 1.5em 5vw;
             border-radius: 20px;
         }
 
@@ -168,8 +168,6 @@
             <iframe src="https://go.www.snailtrail.uk/l/346332/2022-11-29/q9v8k" width="100%" height="350"
                 type="text/html" frameborder="0" allowTransparency="true" style="border: 0"></iframe>
         </div>
-        
-        <button onclick="changeMe()" >Click me</button>
 
     </main>
     <footer>
@@ -178,92 +176,7 @@
         </div>
     </footer>
 
-    <script>
-
-        let myIframe = document.querySelector('iframe').contentWindow;
-        function changeMe() {
-            myIframe.postMessage(document.location.pathname, "*");
-        }
-        
-
-
-        function getParameterByName(name) {
-            name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
-            let regexS = "[\\?&]" + name + "=([^&#]*)";
-            let regex = new RegExp(regexS);
-            let results = regex.exec(window.location.search);
-            if (results == null) {
-                return "";
-            } else {
-                return decodeURIComponent(results[1].replace(/\+/g, " "));
-            }
-        }
-
-        function setCookie(cName, cValue, expDays) {
-            let date = new Date();
-            date.setTime(date.getTime() + (expDays * 24 * 60 * 60 * 1000));
-            const expires = "expires=" + date.toUTCString();
-            document.cookie = cName + "=" + cValue + "; " + expires + '; path=/' + '; domain=' + location.hostname + '; secure';
-        }
-
-        function getCookie(cname) {
-            let name = cname + "=";
-            let decodedCookie = decodeURIComponent(document.cookie);
-            let ca = decodedCookie.split(';');
-            for (let i = 0; i < ca.length; i++) {
-                let c = ca[i];
-                while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
-                }
-                if (c.indexOf(name) == 0) {
-                    return c.substring(name.length, c.length);
-                }
-            }
-            return "";
-        }
-
-        (function () {
-            let iframe = document.querySelectorAll('iframe');
-            let pSource = getParameterByName('utm_source').toLowerCase();
-            let pMedium = getParameterByName('utm_medium').toLowerCase();
-            let pCampaign = getParameterByName('utm_campaign').toLowerCase();
-            let pContent = getParameterByName('utm_content').toLowerCase();
-            let pTerm = getParameterByName('utm_term').toLowerCase();
-            let pGclid = getParameterByName('gclid');
-            let pagePath = window.location.pathname.split('/').filter(e => e).slice(-1);
-
-            setCookie('pageUrl', window.location.pathname.split('/').filter(e => e).slice(-1), 3650);
-
-            if (getParameterByName('utm_source') || getParameterByName('gclid')) {
-                setCookie('utmTracking', '?utm_source=' + pSource + '&utm_medium=' + pMedium + '&utm_campaign=' + pCampaign + '&utm_content=' + pContent + '&utm_term=' + pTerm + '&gclid=' + pGclid + '&last_utm_source=' + pSource + '&last_utm_medium=' + pMedium + '&last_utm_campaign=' + pCampaign + '&last_utm_content=' + pContent + '&last_utm_term=' + pTerm + '&last_gclid=' + pGclid, 3650);
-            } else { }
-            if (getCookie('utmTracking')) {
-                for (ind = 0; ind < iframe.length; ind++) {
-                    iframe[ind].src = iframe[ind].src + getCookie('utmTracking') + '&FSU=' + getCookie('pageUrl') + '&LSU=' + getCookie('pageUrl');
-                }
-            } else {
-                for (ind = 0; ind < iframe.length; ind++) {
-                    iframe[ind].src = iframe[ind].src + '?FSU=' + getCookie('pageUrl') + '&LSU=' + getCookie('pageUrl');
-                }
-            }
-        })();
-    </script>
-
-    <script type='text/javascript'>
-        piAId = '347332';
-        piCId = '';
-        piHostname = 'go.www.snailtrail.uk';
-
-        (function () {
-            function async_load() {
-                var s = document.createElement('script'); s.type = 'text/javascript';
-                s.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + piHostname + '/pd.js';
-                var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
-            }
-            if (window.attachEvent) { window.attachEvent('onload', async_load); }
-            else { window.addEventListener('load', async_load, false); }
-        })();
-    </script>
+    <script src="/js.js"></script>
 </body>
 
 </html>
