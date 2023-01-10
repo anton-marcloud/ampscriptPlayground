@@ -14,6 +14,7 @@ window.addEventListener('message', function (e) {
 
 window.onload = function() {
     document.querySelector('iframe').contentWindow.postMessage(dataDrop, "*");
+    setTimeout(() =>{
     for (i = 0; i < myIframe.length; i++) {
         let iframeSrc = myIframe[i].src;
         console.log(iframeSrc);
@@ -27,6 +28,7 @@ window.onload = function() {
         console.log(formUrls);
         console.log(formHeights);
     }
+    },3000);
 }
 
 function getParameterByName(name) {
