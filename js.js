@@ -1,17 +1,28 @@
 
-let myIframe = document.querySelector('iframe');
+let myIframe = document.querySelectorAll('iframe');
 let dataDrop = {
     pathName: document.location.pathname,
     pageName: document.title,
 }
 
+let heightArray = [];
+
 window.onload = function() {
-    console.log(dataDrop);
-    myIframe.contentWindow.postMessage(dataDrop, "https://go.www.snailtrail.uk");
+    document.querySelector('iframe').contentWindow.postMessage(dataDrop, "https://go.www.snailtrail.uk");
+    for (i = 0; i < myIframe.length; i++) {
+        let iframeSrc = myIframe[i].src;
+        let formUrls = heightArray.map(a => a.formUrl);
+        let formHeights = heightArray.map(a => a.formHeight);
+        for (c = 0; c < formUrls.length; c++) {
+            if (iframeSrc.includes(formUrls[c])) {
+                myIframe[i].height = formHeights[c];
+            } else {}
+        }
+    }
 }
 
 window.addEventListener('message', function (e) {
-    myIframe.height = e.data;
+    heightArray.push(e.data);
 });
 
 function getParameterByName(name) {
