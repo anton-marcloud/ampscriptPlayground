@@ -22,7 +22,7 @@ window.onload = function() {
         let formHeights = heightArray.map(a => a.formHeight);
         for (c = 0; c < formUrls.length; c++) {
             if (iframeSrc.includes(formUrls[c])) {
-                myIframe[i].height = formHeights[c] + 20;
+                myIframe[i].height = formHeights[c] + 40;
             } else { }
         }
         console.log(formUrls);
