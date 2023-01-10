@@ -7,6 +7,11 @@ let dataDrop = {
 
 let heightArray = [];
 
+window.addEventListener('message', function (e) {
+    heightArray.push(e.data);
+});
+
+
 window.onload = function() {
     document.querySelector('iframe').contentWindow.postMessage(dataDrop, "https://go.www.snailtrail.uk");
     for (i = 0; i < myIframe.length; i++) {
@@ -23,10 +28,6 @@ window.onload = function() {
         console.log(formHeights);
     }
 }
-
-window.addEventListener('message', function (e) {
-    heightArray.push(e.data);
-});
 
 function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
