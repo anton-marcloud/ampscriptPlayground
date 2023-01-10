@@ -28,7 +28,7 @@ window.onload = function() {
         console.log(formUrls);
         console.log(formHeights);
     }
-    },3000);
+    },300);
 }
 
 function getParameterByName(name) {
