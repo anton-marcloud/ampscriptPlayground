@@ -11,13 +11,16 @@ window.onload = function() {
     document.querySelector('iframe').contentWindow.postMessage(dataDrop, "https://go.www.snailtrail.uk");
     for (i = 0; i < myIframe.length; i++) {
         let iframeSrc = myIframe[i].src;
+        console.log(iframeSrc);
         let formUrls = heightArray.map(a => a.formUrl);
         let formHeights = heightArray.map(a => a.formHeight);
         for (c = 0; c < formUrls.length; c++) {
             if (iframeSrc.includes(formUrls[c])) {
                 myIframe[i].height = formHeights[c];
-            } else {}
+            } else { }
         }
+        console.log(formUrls);
+        console.log(formHeights);
     }
 }
 
