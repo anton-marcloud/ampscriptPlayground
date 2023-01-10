@@ -13,7 +13,7 @@ window.addEventListener('message', function (e) {
 
 
 window.onload = function() {
-    document.querySelector('iframe').contentWindow.postMessage(dataDrop, "https://go.www.snailtrail.uk");
+    document.querySelector('iframe').contentWindow.postMessage(dataDrop, "*");
     for (i = 0; i < myIframe.length; i++) {
         let iframeSrc = myIframe[i].src;
         console.log(iframeSrc);
