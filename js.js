@@ -9,9 +9,21 @@ let heightArray = [];
 
 window.addEventListener('message', function (e) {
     heightArray.push(e.data);
+    document.querySelector('iframe').contentWindow.postMessage(dataDrop, "*");
+    for (i = 0; i < myIframe.length; i++) {
+        let iframeSrc = myIframe[i].src;
+        let formUrls = heightArray.map(a => a.formUrl);
+        let formHeights = heightArray.map(a => a.formHeight);
+        for (c = 0; c < formUrls.length; c++) {
+            if (iframeSrc.includes(formUrls[c])) {
+                myIframe[i].height = (formHeights[c]*1.05);
+            } else { }
+        }
+    }
 });
 
 
+/*
 window.onload = function() {
     document.querySelector('iframe').contentWindow.postMessage(dataDrop, "*");
     setTimeout(() =>{
@@ -30,6 +42,7 @@ window.onload = function() {
     }
     },300);
 }
+*/
 
 function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
