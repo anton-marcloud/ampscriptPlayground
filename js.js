@@ -1,40 +1,47 @@
 
-let myIframe = document.querySelectorAll('iframe');
-let dataDrop = {
-    pathName: document.location.pathname,
+let iframeElements = document.querySelectorAll('iframe');
+
+let messageToIframe = {
+    pathName: location.pathname.split('/').filter(e => e).slice(-1),
     pageName: document.title,
 }
 
-let heightArray = [];
-
+let messageFromIframe = [];
 window.addEventListener('message', function (e) {
-    heightArray.push(e.data);
-    document.querySelector('iframe').contentWindow.postMessage(dataDrop, "*");
-    for (i = 0; i < myIframe.length; i++) {
-        let iframeSrc = myIframe[i].src;
-        let formUrls = heightArray.map(a => a.formUrl);
-        let formHeights = heightArray.map(a => a.formHeight);
+    messageFromIframe.push(e.data);
+    console.log(messageFromIframe);
+    document.querySelector('iframe').contentWindow.postMessage(messageToIframe, "*");
+    for (i = 0; i < iframeElements.length; i++) {
+        let iframeSrc = iframeElements[i].src;
+        let formUrls = messageFromIframe.map(a => a.formUrl);
+        let formHeights = messageFromIframe.map(a => a.formHeight);
         for (c = 0; c < formUrls.length; c++) {
             if (iframeSrc.includes(formUrls[c])) {
-                myIframe[i].height = (formHeights[c]*1.05);
+                iframeElements[i].height = (formHeights[c]*1.05);
             } else { }
         }
     }
 });
 
+let formEl = document.querySelector('form select');
+window.onload = function() {
+    formEl.options[formEl.selectedIndex].text = "hey"
+}
+
+
 
 /*
 window.onload = function() {
-    document.querySelector('iframe').contentWindow.postMessage(dataDrop, "*");
+    document.querySelector('iframe').contentWindow.postMessage(messageToIframe, "*");
     setTimeout(() =>{
-    for (i = 0; i < myIframe.length; i++) {
-        let iframeSrc = myIframe[i].src;
+    for (i = 0; i < iframeElements.length; i++) {
+        let iframeSrc = iframeElements[i].src;
         console.log(iframeSrc);
-        let formUrls = heightArray.map(a => a.formUrl);
-        let formHeights = heightArray.map(a => a.formHeight);
+        let formUrls = messageFromIframe.map(a => a.formUrl);
+        let formHeights = messageFromIframe.map(a => a.formHeight);
         for (c = 0; c < formUrls.length; c++) {
             if (iframeSrc.includes(formUrls[c])) {
-                myIframe[i].height = (formHeights[c]*1.05);
+                iframeElements[i].height = (formHeights[c]*1.05);
             } else { }
         }
         console.log(formUrls);

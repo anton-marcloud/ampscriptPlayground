@@ -61,15 +61,27 @@ nav ul li {
 }
 
 main {
-    padding: 3rem 3vw;
+    padding: 3rem 0;
     min-height: 80vh;
+}
+
+section {
+    padding: 2rem 3vw;
+    margin: 0 auto;
+    max-width: 1499px;
 }
 
 h1 {
     color: var(--mid);
-    font: normal 2.4rem/1.2 'Anton', sans-serif;
-    padding: 0 0 1em;
+    font: normal 2.4rem/1 'Anton', sans-serif;
+    padding: 0 0 .4em;
     text-align: center;
+}
+
+h2 {
+    color: var(--mid);
+    font: normal 1.8rem/1.2 'Anton', sans-serif;
+    padding: 0 0 .5em;
 }
 
 .form-box {
@@ -78,6 +90,10 @@ h1 {
     background-color: var(--light);
     padding: 1.5em 5vw;
     border-radius: 20px;
+}
+
+select option:first-child {
+    display: none;
 }
 
 footer {
@@ -89,4 +105,10 @@ footer {
     padding: 2rem 3vw;
     max-width: 1499px;
     text-align: center;
+}
+
+.mini-form-box {
+    max-width: 600px;
+    padding: 0 0 1rem;
+    margin: 0 auto;
 }
