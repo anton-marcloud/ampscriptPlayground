@@ -44,6 +44,7 @@ if (cookieVal) {
         window['pdt'] = window['pdt'] || function () { (window['pdt'].cq = window['pdt'].cq || []).push(arguments); };
     })();
     pdt('create', 347332, 1024, 'go.www.snailtrail.uk');
+    pdt('setOptIn', true);
     pdt('sendPageView');
 } else {
     (function () {
