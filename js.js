@@ -1,4 +1,6 @@
 
+/*
+
 let iframeElements = document.querySelectorAll('iframe');
 
 let messageToIframe = {
@@ -6,7 +8,7 @@ let messageToIframe = {
     pageName: document.title,
 }
 
-/*
+
 let messageFromIframe = [];
 window.addEventListener('message', function (e) {
     messageFromIframe.push(e.data);
@@ -56,27 +58,6 @@ if (cookieVal) {
     })();
     pdt('revokeConsent');
 }
-
-/*
-window.onload = function() {
-    document.querySelector('iframe').contentWindow.postMessage(messageToIframe, "*");
-    setTimeout(() =>{
-    for (i = 0; i < iframeElements.length; i++) {
-        let iframeSrc = iframeElements[i].src;
-        console.log(iframeSrc);
-        let formUrls = messageFromIframe.map(a => a.formUrl);
-        let formHeights = messageFromIframe.map(a => a.formHeight);
-        for (c = 0; c < formUrls.length; c++) {
-            if (iframeSrc.includes(formUrls[c])) {
-                iframeElements[i].height = (formHeights[c]*1.05);
-            } else { }
-        }
-        console.log(formUrls);
-        console.log(formHeights);
-    }
-    },300);
-}
-*/
 
 function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
