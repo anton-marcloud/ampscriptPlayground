@@ -6,6 +6,7 @@ let messageToIframe = {
     pageName: document.title,
 }
 
+/*
 let messageFromIframe = [];
 window.addEventListener('message', function (e) {
     messageFromIframe.push(e.data);
@@ -21,7 +22,7 @@ window.addEventListener('message', function (e) {
             } else { }
         }
     }
-});
+}); */
 
 let formEl = document.querySelector('form select');
 window.onload = function () {
