@@ -22,26 +22,18 @@ window.addEventListener('message', function (e) {
             } else { }
         }
     }
-}); 
+});
 
 let formEl = document.querySelector('form select');
 window.onload = function () {
     formEl.options[formEl.selectedIndex].text = "hey"
 }
 
-function getCookie(cookie_consent_user_accepted) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${cookie_consent_user_accepted}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-}
-
+function getCookie(name) { const value = `; ${document.cookie}`; const parts = value.split(`; ${name}=`); if (parts.length === 2) return parts.pop().split(';').shift(); }
 var cookieVal = getCookie('cookie_consent_user_accepted');
-
 if (cookieVal) {
     (function () {
-        var s = document.createElement('script');
-        s.type = 'text/javascript'; s.async = true; s.src = '//' + 'go.www.snailtrail.uk' + '/pdt.js';
-        var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = '//' + 'go.www.snailtrail.uk' + '/pdt.js'; var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
         window['pdt'] = window['pdt'] || function () { (window['pdt'].cq = window['pdt'].cq || []).push(arguments); };
     })();
     pdt('create', 347332, 1024, 'go.www.snailtrail.uk');
