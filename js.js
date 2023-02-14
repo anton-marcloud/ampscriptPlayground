@@ -1,27 +1,4 @@
 
-let iframeElements = document.querySelectorAll('iframe');
-
-let messageToIframe = {
-    pathName: location.pathname.split('/').filter(e => e).slice(-1),
-    pageName: document.title,
-}
-
-let messageFromIframe = [];
-window.addEventListener('message', function (e) {
-    messageFromIframe.push(e.data);
-    console.log(messageFromIframe);
-    document.querySelector('iframe').contentWindow.postMessage(messageToIframe, "*");
-    for (i = 0; i < iframeElements.length; i++) {
-        let iframeSrc = iframeElements[i].src;
-        let formUrls = messageFromIframe.map(a => a.formUrl);
-        let formHeights = messageFromIframe.map(a => a.formHeight);
-        for (c = 0; c < formUrls.length; c++) {
-            if (iframeSrc.includes(formUrls[c])) {
-                iframeElements[i].height = (formHeights[c] * 1.05);
-            } else { }
-        }
-    }
-});
 
 function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
@@ -108,3 +85,28 @@ if (cookieVal.includes('"tracking":true')) {
     pdt('create', 347332, 9605, 'go.www.snailtrail.uk');
     pdt('revokeConsent');
 }
+
+
+let iframeElements = document.querySelectorAll('iframe');
+
+let messageToIframe = {
+    pathName: location.pathname.split('/').filter(e => e).slice(-1),
+    pageName: document.title,
+}
+
+let messageFromIframe = [];
+window.addEventListener('message', function (e) {
+    messageFromIframe.push(e.data);
+    console.log(messageFromIframe);
+    document.querySelector('iframe').contentWindow.postMessage(messageToIframe, "*");
+    for (i = 0; i < iframeElements.length; i++) {
+        let iframeSrc = iframeElements[i].src;
+        let formUrls = messageFromIframe.map(a => a.formUrl);
+        let formHeights = messageFromIframe.map(a => a.formHeight);
+        for (c = 0; c < formUrls.length; c++) {
+            if (iframeSrc.includes(formUrls[c])) {
+                iframeElements[i].height = (formHeights[c] * 1.05);
+            } else { }
+        }
+    }
+});
