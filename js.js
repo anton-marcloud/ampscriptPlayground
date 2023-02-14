@@ -84,7 +84,6 @@ function getCookie(cname) {
     }
 })();
 
-
 function getCookie(name) { const value = `; ${document.cookie}`; const parts = value.split(`; ${name}=`); if (parts.length === 2) return parts.pop().split(';').shift(); }
 
 var cookieVal = decodeURIComponent(getCookie('cookie_consent_level'));
@@ -106,6 +105,6 @@ if (cookieVal.includes('"tracking":true')) {
         window['pdt'] = window['pdt'] || function () { (window['pdt'].cq = window['pdt'].cq || []).push(arguments); };
     })();
 
-  //  pdt('create', 347332, 9605, 'go.www.snailtrail.uk');
+    pdt('create', 347332, 9605, 'go.www.snailtrail.uk');
     pdt('revokeConsent');
 }
