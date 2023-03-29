@@ -86,7 +86,16 @@ if (cookieVal.includes('"tracking":true')) {
     pdt('revokeConsent');
 }
 
+/* start script for Moving Vnues */
 
+let currentUrl = window.location.pathname.split('/').filter(e => e).slice(-1)[0].replace(/-/g, ' ');
+let iframeElements = document.querySelectorAll('iframe');
+
+window.addEventListener('message', function (e) {
+    document.querySelector('iframe').contentWindow.postMessage(currentUrl, "*");
+});
+
+/*
 let iframeElements = document.querySelectorAll('iframe');
 
 let messageToIframe = {
@@ -109,4 +118,4 @@ window.addEventListener('message', function (e) {
             } else { }
         }
     }
-});
+}); */
