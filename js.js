@@ -91,7 +91,7 @@ if (cookieVal.includes('"tracking":true')) {
 let iframeElements = document.querySelectorAll('iframe');
 
 let messageToIframe = {
-    pathName: location.pathname.split('/').filter(e => e).slice(-1)
+    pathName: window.location.pathname.split('/').filter(e => e).slice(-1)[0].replace(/-/g, ' ')
 }
 
 window.addEventListener('message', function (e) {
