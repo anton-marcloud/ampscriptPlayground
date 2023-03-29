@@ -88,11 +88,16 @@ if (cookieVal.includes('"tracking":true')) {
 
 /* start script for Moving Vnues */
 
-let currentUrl = window.location.pathname.split('/').filter(e => e).slice(-1)[0].replace(/-/g, ' ');
 let iframeElements = document.querySelectorAll('iframe');
 
+let messageToIframe = {
+    pathName: location.pathname.split('/').filter(e => e).slice(-1)
+}
+
 window.addEventListener('message', function (e) {
-    document.querySelector('iframe').contentWindow.postMessage(currentUrl, "*");
+    iframeElements.forEach(i => {
+        i.contentWindow.postMessage(messageToIframe, "*");
+    })
 });
 
 /*
