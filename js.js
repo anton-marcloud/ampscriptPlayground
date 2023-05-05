@@ -86,7 +86,23 @@ if (cookieVal.includes('"tracking":true')) {
     pdt('revokeConsent');
 }
 
-/* start script for Moving Vnues */
+/* Start script for Expleo */
+
+/* Website code*/
+
+let iframeElements = document.querySelectorAll('iframe');
+iframeElements.forEach(i => {
+    i.src += "?Form_submission_URL=" + window.location;
+})
+
+
+window.addEventListener('message',  function() {
+    setCookie('formSubmissionUrl')
+})
+
+/* Form code */
+
+/* start script for Moving Vnues 
 
 let iframeElements = document.querySelectorAll('iframe');
 
@@ -99,6 +115,8 @@ window.addEventListener('message', function (e) {
         i.contentWindow.postMessage(messageToIframe, "*");
     })
 });
+
+End script for moving venues */
 
 /*
 let iframeElements = document.querySelectorAll('iframe');
