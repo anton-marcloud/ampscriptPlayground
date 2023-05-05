@@ -35,6 +35,7 @@ function getCookie(cname) {
     return "";
 }
 
+/*
 (function () {
     let iframe = document.querySelectorAll('iframe');
     let pSource = getParameterByName('utm_source').toLowerCase();
@@ -86,13 +87,19 @@ if (cookieVal.includes('"tracking":true')) {
     pdt('revokeConsent');
 }
 
+*/
+
 /* Start script for Expleo */
 
 /* Website code*/
 
 let iframeElements = document.querySelectorAll('iframe');
 iframeElements.forEach(i => {
-    i.src += "?Form_submission_URL=" + window.location;
+    if(i.src.includes("?")) {
+        i.src += "&Form_submission_URL=" + window.location;
+    } else {
+        i.src += "?Form_submission_URL=" + window.location;
+    }
 })
 
 
