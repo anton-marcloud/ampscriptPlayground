@@ -96,7 +96,7 @@ if (cookieVal.includes('"tracking":true')) {
 let pardotIframes = document.querySelectorAll('iframe[src*="snail"]');
 setInterval(function() {
     pardotIframes.forEach(i => {
-        i.contentWindow.postMessage(window.location, "*");
+        i.contentWindow.postMessage(location.href, "*");
     })
 }, 300)
 
