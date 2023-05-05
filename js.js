@@ -93,21 +93,18 @@ if (cookieVal.includes('"tracking":true')) {
 
 /* Website code*/
 
-let iframeElements = document.querySelectorAll('iframe');
-iframeElements.forEach(i => {
-    if(i.src.includes("?")) {
-        i.src += "&Form_submission_URL=" + window.location;
-    } else {
-        i.src += "?Form_submission_URL=" + window.location;
-    }
-})
+let pardotIframes = document.querySelectorAll('iframe[src*="snail"]');
+setInterval(function() {
+    pardotIframes.forEach(i => {
+        i.contentWindow.postMessage(window.location, "*");
+    })
+}, 300)
 
-
-window.addEventListener('message',  function() {
-    setCookie('formSubmissionUrl')
-})
-
-/* Form code */
+/* Form code 
+window.addEventListener('message',  function(e) {
+    setCookie('formSubmissionUrl', e.data, 1);
+}) 
+*/
 
 /* start script for Moving Vnues 
 
