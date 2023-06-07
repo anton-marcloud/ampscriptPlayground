@@ -149,12 +149,30 @@ window.addEventListener('message', function (e) {
 }); */
 
 /* Code for McCain GB Form handler solution */
-let prospectEmail;
+
 window.addEventListener('message', function (e) {
-    if ((e.data.messenger === "Pardot iframe") && !prospectEmail) {
-        console.log(e.data);
-        prospectEmail = e.data.email;
-        setCookie('email', prospectEmail, 365);
+    if ((e.data.messenger === "Pardot iframe") && !getCookie('email')) {
+        setCookie('email', e.data.email, 365);
+    } else if ((e.data.name === "Pardot") && getCookie('email')){
+        let selectedProduct = encodeURI(e.data.product.name);
+        let selectedRetailer = encodeURI(e.data.product.retailerImageUrl);
+        let formHandler = document.createElement('iframe');
+        formHandler.setAttribute('height', 0);
+        formHandler.setAttribute('width', 0);
+        formHandler.src = 'https://go.www.snailtrail.uk/l/346332/2023-06-07/x7nkt?email=' + getCookie('email') + '&product=' + selectedProduct + '&retailer=' + selectedRetailer; 
+        document.body.append(formHandler);  
     } else {}
 })
+
 let buttons = document.querySelectorAll('button');
+let selectedProduct = encodeURI("Fries");
+let selectedRetailer = encodeURI("Test retailer");
+let formHandler = document.createElement('iframe');
+formHandler.setAttribute('height', 0);
+formHandler.setAttribute('width', 0);
+formHandler.src = 'https://go.www.snailtrail.uk/l/346332/2023-06-07/x7nkt?email=' + getCookie('email') + '&product=' + selectedProduct + '&retailer=' + selectedRetailer; 
+buttons.forEach(b=>{
+    b.onclick = function(){
+        document.body.append(formHandler);
+    }
+})
