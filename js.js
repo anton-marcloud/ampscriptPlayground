@@ -152,6 +152,7 @@ window.addEventListener('message', function (e) {
 let prospectEmail;
 window.addEventListener('message', function (e) {
     if ((e.data.messenger === "Pardot iframe") && !prospectEmail) {
+        console.log(e.data);
         prospectEmail = e.data.email;
         setCookie('email', prospectEmail, 365);
     } else {}
