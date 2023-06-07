@@ -149,9 +149,11 @@ window.addEventListener('message', function (e) {
 }); */
 
 /* Code for McCain GB Form handler solution */
+let prospectEmail;
 window.addEventListener('message', function (e) {
-    if (e.data.messenger == "Pardot iframe") {
+    if ((e.data.messenger == "Pardot iframe") && !prospectEmail) {
         setCookie(prospectEmail, e.data.email, 365);
+        prospectEmail = getCookie(prospectEmail);
     } else {}
 })
 let buttons = document.querySelectorAll('button');
