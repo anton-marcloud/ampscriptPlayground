@@ -156,10 +156,21 @@ window.addEventListener('message', function (e) {
     } else if ((e.data.name === "Pardot") && getCookie('email')){
         let selectedProduct = encodeURI(e.data.product.name);
         let selectedRetailer = encodeURI(e.data.product.retailerImageUrl);
+        if(selectedRetailer.includes("media-amazon")) {
+            selectedRetailer = "Amazon";
+        } else if (selectedRetailer.includes("bidfooddirect")) {
+            selectedRetailer = encodeURI("BidFood Direct");
+        } else if (selectedRetailer.includes("Brakes")) {
+            selectedRetailer = "Brakes";
+        } else if (selectedRetailer.includes("jjfoodservice")) {
+            selectedRetailer = encodeURI("JJ Food Service");
+        } else {
+            selectedRetailer = encodeURI("Thomas Ridley Foodservice");
+        }
         let formHandler = document.createElement('iframe');
-        formHandler.setAttribute('height', '1px');
-        formHandler.setAttribute('width', '1px');
-        formHandler.src = 'https://go.www.snailtrail.uk/l/346332/2023-06-07/x7nkt?email=' + encodeURI(getCookie('email')) + '&product=' + selectedProduct + '&retailer=' + selectedRetailer; 
+        formHandler.setAttribute('height', '0');
+        formHandler.setAttribute('width', '0');
+        formHandler.src = 'https://go.www.snailtrail.uk/l/346332/2023-06-07/x7nkt?email=' + getCookie('email') + '&product=' + selectedProduct + '&retailer=' + selectedRetailer; 
         document.body.append(formHandler);  
     } else {}
 })
