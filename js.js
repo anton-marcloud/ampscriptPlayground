@@ -152,7 +152,8 @@ window.addEventListener('message', function (e) {
 let messageFromIframe = [];
 let prospectEmail;
 window.addEventListener('message', function (e) {
-    if ((e.data.messenger == "Pardot iframe") && !prospectEmail) {
+    console.log(e.data);
+    if ((e.data == "messageToParent") && !prospectEmail) {
         messageFromIframe.push(e.data);
         prospectEmail = messageFromIframe.map(a => a.email);
         setCookie(email, prospectEmail, 365);
