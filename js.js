@@ -149,13 +149,10 @@ window.addEventListener('message', function (e) {
 }); */
 
 /* Code for McCain GB Form handler solution */
-let messageFromIframe = [];
 let prospectEmail;
 window.addEventListener('message', function (e) {
-    if ((e.data == "messageToParent") && !prospectEmail) {
-        messageFromIframe.push(e.data);
-        console.log(messageFromIframe);
-        prospectEmail = messageFromIframe.map(a => a.email);
+    if ((e.data.messenger === "Pardot iframe") && !prospectEmail) {
+        prospectEmail = e.data.email;
         setCookie('email', prospectEmail, 365);
     } else {}
 })
