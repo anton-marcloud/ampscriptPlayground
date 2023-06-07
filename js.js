@@ -156,7 +156,7 @@ window.addEventListener('message', function (e) {
     if ((e.data == "messageToParent") && !prospectEmail) {
         messageFromIframe.push(e.data);
         prospectEmail = messageFromIframe.map(a => a.email);
-        setCookie(email, prospectEmail, 365);
+        setCookie('email', prospectEmail, 365);
     } else {}
 })
 let buttons = document.querySelectorAll('button');
