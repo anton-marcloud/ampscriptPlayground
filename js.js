@@ -152,9 +152,9 @@ window.addEventListener('message', function (e) {
 let messageFromIframe = [];
 let prospectEmail;
 window.addEventListener('message', function (e) {
-    console.log(e.data);
     if ((e.data == "messageToParent") && !prospectEmail) {
         messageFromIframe.push(e.data);
+        console.log(messageFromIframe);
         prospectEmail = messageFromIframe.map(a => a.email);
         setCookie('email', prospectEmail, 365);
     } else {}
