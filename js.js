@@ -157,8 +157,8 @@ window.addEventListener('message', function (e) {
         let selectedProduct = encodeURI(e.data.product.name);
         let selectedRetailer = encodeURI(e.data.product.retailerImageUrl);
         let formHandler = document.createElement('iframe');
-        formHandler.setAttribute('height', 0);
-        formHandler.setAttribute('width', 0);
+        formHandler.setAttribute('height', '1px');
+        formHandler.setAttribute('width', '1px');
         formHandler.src = 'https://go.www.snailtrail.uk/l/346332/2023-06-07/x7nkt?email=' + encodeURI(getCookie('email')) + '&product=' + selectedProduct + '&retailer=' + selectedRetailer; 
         document.body.append(formHandler);  
     } else {}
@@ -168,8 +168,8 @@ let buttons = document.querySelectorAll('button');
 let selectedProduct = encodeURI("Fries");
 let selectedRetailer = encodeURI("Test retailer");
 let formHandler = document.createElement('iframe');
-formHandler.setAttribute('height', 0);
-formHandler.setAttribute('width', 0);
+formHandler.setAttribute('height', '1px');
+formHandler.setAttribute('width', '1px');
 formHandler.src = 'https://go.www.snailtrail.uk/l/346332/2023-06-07/x7nkt?email=' + encodeURI(getCookie('email')) + '&product=' + selectedProduct + '&retailer=' + selectedRetailer; 
 buttons.forEach(b=>{
     b.onclick = function(){
