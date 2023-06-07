@@ -3,6 +3,8 @@
     position: relative;
     padding: 0;
     margin: 0;
+    border: 0;
+    outline: 0;
     --lightest: #f0eff3;
     --light: #D8D2E1;
     --mid: #b07a79;
@@ -69,6 +71,30 @@ section {
     padding: 2rem 3vw;
     margin: 0 auto;
     max-width: 1499px;
+}
+
+.trio {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    cursor: pointer;
+    padding: .4em 1.2em;
+    margin: 0 .5em;
+    background-color: var(--mid);
+    border: 2px solid var(--mid);
+    border-radius: 4px;
+    color: var(--lightest);
+    text-transform: uppercase;
+    transition: 150ms;
+}
+
+button:hover {
+    background-color: transparent;
+    color: var(--mid);
 }
 
 h1 {

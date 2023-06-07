@@ -91,14 +91,15 @@ if (cookieVal.includes('"tracking":true')) {
 
 /* Start script for Expleo */
 
-/* Website code*/
+/* Website code
 
 let pardotIframes = document.querySelectorAll('iframe[src*="snail"]');
 setInterval(function() {
     pardotIframes.forEach(i => {
         i.contentWindow.postMessage(location.href, "*");
     })
-}, 300)
+}, 300) 
+*/
 
 /* Form code 
 window.addEventListener('message',  function(e) {
@@ -146,3 +147,11 @@ window.addEventListener('message', function (e) {
         }
     }
 }); */
+
+/* Code for McCain GB Form handler solution */
+window.addEventListener('message', function (e) {
+    if (e.data.messenger == "Pardot iframe") {
+        setCookie(prospectEmail, e.data.email, 365);
+    } else {}
+})
+let buttons = document.querySelectorAll('button');
