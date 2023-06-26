@@ -76,7 +76,7 @@ if (cookieVal) {
 
     pdt('create', 347332, 9605, 'go.www.snailtrail.uk');
     pdt('setOptIn', true);
-    pdt("set", "Single_Opt_In", true);
+    pdt('set', 'utmTerm', true);
     pdt('sendPageView');
 } else {
     (function () {
