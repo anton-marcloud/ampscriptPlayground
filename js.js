@@ -76,8 +76,12 @@ if (cookieVal) {
 
     pdt('create', 347332, 9605, 'go.www.snailtrail.uk');
     pdt('setOptIn', true);
-    pdt('set', 'utmTerm', true);
     pdt('sendPageView');
+    let formHandler = document.createElement('iframe');
+    formHandler.setAttribute('height', '0');
+    formHandler.setAttribute('width', '0');
+    formHandler.src = 'https://go.www.snailtrail.uk/l/346332/2023-06-07/x7nkt?email=' + getCookie('email') + '&Single_Opt_In=true; 
+    document.body.append(formHandler);  
 } else {
     (function () {
         var s = document.createElement('script');
@@ -88,6 +92,11 @@ if (cookieVal) {
 
     pdt('create', 347332, 9605, 'go.www.snailtrail.uk');
     pdt('revokeConsent');
+    let formHandler = document.createElement('iframe');
+    formHandler.setAttribute('height', '0');
+    formHandler.setAttribute('width', '0');
+    formHandler.src = 'https://go.www.snailtrail.uk/l/346332/2023-06-07/x7nkt?email=' + getCookie('email') + '&Single_Opt_In=false; 
+    document.body.append(formHandler);  
 }
 
 /* Start script for Expleo */
