@@ -70,7 +70,7 @@ var cookieVal = JSON.parse(getCookie('cookie_consent_level')).tracking;
 
 if (cookieVal) {
     (function () {
-        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = '//go.www.snailtrail.uk/pdt.js'; var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = '//go.www.snailtrail.uk/pdt.js?Single_Opt_In=true'; var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
         window['pdt'] = window['pdt'] || function () { (window['pdt'].cq = window['pdt'].cq || []).push(arguments); };
     })();
 
