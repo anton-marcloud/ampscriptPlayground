@@ -80,7 +80,7 @@ if (cookieVal) {
     let formHandler = document.createElement('iframe');
     formHandler.setAttribute('height', '0');
     formHandler.setAttribute('width', '0');
-    formHandler.src = 'https://go.www.snailtrail.uk/l/346332/2023-06-07/x7nkt?email=' + getCookie('email') + '&Single_Opt_In=true; 
+    formHandler.src = 'https://go.www.snailtrail.uk/l/346332/2023-06-07/x7nkt?email=' + getCookie('email') + '&Single_Opt_In=true'; 
     document.body.append(formHandler);  
 } else {
     (function () {
@@ -95,7 +95,7 @@ if (cookieVal) {
     let formHandler = document.createElement('iframe');
     formHandler.setAttribute('height', '0');
     formHandler.setAttribute('width', '0');
-    formHandler.src = 'https://go.www.snailtrail.uk/l/346332/2023-06-07/x7nkt?email=' + getCookie('email') + '&Single_Opt_In=false; 
+    formHandler.src = 'https://go.www.snailtrail.uk/l/346332/2023-06-07/x7nkt?email=' + getCookie('email') + '&Single_Opt_In=false'; 
     document.body.append(formHandler);  
 }
 
