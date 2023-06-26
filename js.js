@@ -64,11 +64,13 @@ function getCookie(cname) {
 
 function getCookie(name) { const value = `; ${document.cookie}`; const parts = value.split(`; ${name}=`); if (parts.length === 2) return parts.pop().split(';').shift(); }
 
-var cookieVal = decodeURIComponent(getCookie('cookie_consent_level'));
+*/
 
-if (cookieVal.includes('"tracking":true')) {
+var cookieVal = JSON.parse(getCookie('cookie_consent_level')).tracking;
+
+if (cookieVal) {
     (function () {
-        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = '//' + 'go.www.snailtrail.uk' + '/pdt.js'; var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = '//go.www.snailtrail.uk/pdt.js'; var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
         window['pdt'] = window['pdt'] || function () { (window['pdt'].cq = window['pdt'].cq || []).push(arguments); };
     })();
 
@@ -78,7 +80,7 @@ if (cookieVal.includes('"tracking":true')) {
 } else {
     (function () {
         var s = document.createElement('script');
-        s.type = 'text/javascript'; s.async = true; s.src = '//' + 'go.www.snailtrail.uk' + '/pdt.js';
+        s.type = 'text/javascript'; s.async = true; s.src = '//go.www.snailtrail.uk/pdt.js';
         var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
         window['pdt'] = window['pdt'] || function () { (window['pdt'].cq = window['pdt'].cq || []).push(arguments); };
     })();
@@ -86,8 +88,6 @@ if (cookieVal.includes('"tracking":true')) {
     pdt('create', 347332, 9605, 'go.www.snailtrail.uk');
     pdt('revokeConsent');
 }
-
-*/
 
 /* Start script for Expleo */
 
@@ -148,7 +148,7 @@ window.addEventListener('message', function (e) {
     }
 }); */
 
-/* Code for McCain GB Form handler solution */
+/* Code for McCain GB Form handler solution src = https://www2.mccainfoodservice.co.uk/l/965783/2023-06-07/46cy1 
 
 window.addEventListener('message', function (e) {
     if ((e.data.messenger === "Pardot iframe") && !getCookie('email')) {
@@ -170,7 +170,7 @@ window.addEventListener('message', function (e) {
         let formHandler = document.createElement('iframe');
         formHandler.setAttribute('height', '0');
         formHandler.setAttribute('width', '0');
-        formHandler.src = 'https://go.www.snailtrail.uk/l/346332/2023-06-07/x7nkt?email=' + getCookie('email') + '&product=' + selectedProduct + '&retailer=' + selectedRetailer; 
+        formHandler.src = 'https://go.www.snailtrail.uk/l/346332/2023-06-07/x7nkt?email=' + getCookie('email') + '&Last_product_shop_click=' + selectedProduct + '&Last_wholesaler_shop_click=' + selectedRetailer; 
         document.body.append(formHandler);  
     } else {}
 })
@@ -187,3 +187,5 @@ buttons.forEach(b=>{
         document.body.append(formHandler);
     }
 })
+
+*/
